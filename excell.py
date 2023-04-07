@@ -3,11 +3,14 @@ import excell_def
 
 values=list()
 file="r1.xlsx"
-worksheet=['r1','r2']
+#worksheet=['r1','r2']
 wb = openpyxl.load_workbook(file)
+num_of_ws=len(wb.sheetnames)
+ws_name=wb.sheetnames
 
-for i in range(0,2):
-    ws = wb[worksheet[i]]
+
+for i in range(0,num_of_ws):
+    ws = wb[ws_name[i]]
     #print('Total number of rows: '+str(ws.max_row)+'. And total number of columns: '+str(ws.max_column))
     row=int(ws.max_row)
     column=int(ws.max_column)
@@ -17,7 +20,7 @@ for i in range(0,2):
             values.append(ws.cell(row=k, column=j).value)
             #print("k=",k,values)
 
-        excell_def.send_to_r(worksheet[i],values)
+        excell_def.send_to_r(ws_name[i],values)
         values=list()
 
 #print(ws.cell(row=3,column=3).value)
