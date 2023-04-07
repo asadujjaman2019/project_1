@@ -17,7 +17,7 @@ for i in range(0,2):
             values.append(ws.cell(row=k, column=j).value)
             #print("k=",k,values)
 
-        excell_def.send_to_r(values)
+        excell_def.send_to_r(worksheet[i],values)
         values=list()
 
 #print(ws.cell(row=3,column=3).value)
