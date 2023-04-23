@@ -15,9 +15,8 @@ class exl_2_code_class:
             for j in range(1,self.ws_column_count+1):
                 self.cell_values.append(self.ws_object.cell(row=k, column=j).value)
             self.formate_command(self.cell_values)
-            print(self.commands_list)
             self.cell_values=list()
-
+        return self.commands_list
 
     def formate_command(self,cell_value):
         self.interface = "interface" + cell_value[2]

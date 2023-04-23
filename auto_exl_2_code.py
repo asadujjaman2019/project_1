@@ -9,4 +9,6 @@ object_list=[]
 
 for i in range(0, exl_file_sheet_count):
     object_list.append(exl_2_code_class.exl_2_code_class(exl_file_name, exl_file_sheet_names[i]))
-object_list[1].create_command()
+
+list_1=object_list[0].create_command()
+print(list_1)
