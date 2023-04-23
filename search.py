@@ -1,12 +1,22 @@
-import os
-def find_files(filename, search_path):
-   result = []
+import socket
+port=12345
+host = "127.0.0.1"
 
-# Wlaking top-down from the root
-   for root, dir, files in os.walk(search_path):
-      if filename in files:
-         result.append(os.path.join(root, filename))
-         print("ok")
-   return result
+s=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+print("socket successfully created")
 
-print(find_files("day1.txt","D:"))
+s.bind((host,port))
+print("socket bind to>>" ,port)
+
+s.listen(5)
+print("socket is listining")
+
+while True:
+
+    c,addr=s.accept()
+    print("got connection from my pc",addr)
+
+    c.send("thank u for connecting shiplu".encode())
+
+    c.close()
+    break
