@@ -8,6 +8,8 @@ class exl_2_code_class:
         self.ws_column_count=self.ws_object.max_column
         self.cell_values=[]
         self.commands_list=[]
+        self._est_u_=10
+        self._est_pry=100
 
     def create_command(self):
 
